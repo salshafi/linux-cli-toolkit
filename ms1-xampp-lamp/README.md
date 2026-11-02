@@ -9,6 +9,31 @@ The goal was to get a working web server with PHP running and confirm it by load
 3. Opened `http://localhost/introEx.php` to check PHP was running.
 4. Opened `http://localhost/form.html`, filled in a name and email, and submitted. That sends a POST request to `welcome.php`, which prints the values back.
 
+## Screenshots
+
+XAMPP control panel with Apache, MySQL and ProFTPD running:
+
+![XAMPP running](1a-xampp-manager-running.png)
+
+Project files created in the htdocs folder:
+
+![project files](3-project-files-created.png)
+
+`introEx.php` in the browser:
+
+![introEx.php output](3-introEx.png)
+
+The form filled in:
+
+![form filled in](5-form-filled.png)
+
+The result after submitting:
+
+![welcome.php result](6-welcome-result.png)
+
+The source of the three files (`cat` in the terminal):
+
+![source code](8-source-code-verification.png)
 ## Files
 
 | File | What it does |
