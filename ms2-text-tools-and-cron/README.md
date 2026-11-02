@@ -92,43 +92,4 @@ Note that it only counts uppercase `ERROR`, so the lowercase `error` line is not
 
 ![awk on the log](awk-log-output.png)
 
-For the pipe-delimited file I use `-F'|'` to set the separator, and `NR>1` to skip the header row.
-
-Names and GPAs:
-```
-$ awk -F'|' 'NR>1 {print $2, $4}' students.txt
-Ava Reyes 3.4
-Noah Patel 3.9
-Mia Chen 2.7
-Lucas Moore 3.1
-Zoe Walker 3.6
-Ethan Gray 3.2
-```
-
-Students with GPA 3.5 or higher:
-```
-$ awk -F'|' 'NR>1 && $4>=3.5 {print $2, $3, $4}' students.txt
-Noah Patel Software 3.9
-Zoe Walker Networking 3.6
-```
-
-Average GPA per program (uses an associative array):
-```
-$ awk -F'|' 'NR>1 {sum[$3]+=$4; n[$3]++} END{for (p in sum) printf "%s %.2f\n", p, sum[p]/n[p]}' students.txt | sort
-Cybersecurity 2.95
-Networking 3.50
-Software 3.50
-```
-
-![awk on the student data](awk-students-output.png)
-
-## cron
-
-Edit the crontab without wiping what's already there:
-```
-crontab -l 2>/dev/null > mycron.txt
-echo "*/5 * * * * echo 'cron test' >> ~/ms2/cron_test.log" >> mycron.txt
-crontab mycron.txt
-```
-
-The five fields are minute, hour, day of month, month, day of week. `*/5` in the first field means every 5 minutes, so this appends "cron test" to `cron_test.log` every five minutes. I checked it by looking at the log file after a few minutes.
+For the pipe-delimited file I
