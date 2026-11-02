@@ -1,1 +1,4 @@
-<?php echo "Welcome to COMP301 Milestone-1"; ?>
+<?php
+echo "Welcome to COMP301 Milestone-1";
+?>
+
