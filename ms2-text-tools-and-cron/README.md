@@ -59,7 +59,7 @@ $ sed -n '/ERROR/,/NOTICE/p' copy.log
 
 ![sed output](sed-output.png)
 
-## find
+## find  These are the patterns I used; `/path` is a placeholder for whichever folder you search.
 
 ```
 find /path -name "*.txt"                 # by name
