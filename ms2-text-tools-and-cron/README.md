@@ -34,22 +34,30 @@ $ grep -B1 -A1 "Failed password" access.log | grep -oE "[0-9]{1,3}(\.[0-9]{1,3})
 10.0.0.27
 ```
 
+![grep output](grep-output.png)
+
 ## sed
 
-Replace INFO with NOTICE and keep a backup (`-i.bak` edits the file in place and saves the original as `access.log.bak`):
+I ran sed on a copy so the original `access.log` still has INFO in it. `-i.bak` edits the file in place and saves the original as `copy.log.bak`:
 ```
-$ sed -i.bak 's/INFO/NOTICE/g' access.log
+$ cp access.log copy.log
+$ sed -i.bak 's/INFO/NOTICE/g' copy.log
+$ head -3 copy.log
+2026-07-20 09:12:03 NOTICE Server started
+2026-07-20 09:15:41 NOTICE User login successful
+2026-07-20 09:16:58 WARN Disk usage at 82 percent
 ```
-(I ran this on a copy so the repo's `access.log` still has INFO in it.)
 
 Print from each ERROR line down to the next NOTICE line:
 ```
-$ sed -n '/ERROR/,/NOTICE/p' access.log
+$ sed -n '/ERROR/,/NOTICE/p' copy.log
 2026-07-20 09:17:51 ERROR Authentication failed for admin
 2026-07-20 09:21:09 NOTICE Backup job completed
 2026-07-20 09:31:15 ERROR Connection refused on port 8080
 2026-07-20 09:40:02 NOTICE Config file reloaded
 ```
+
+![sed output](sed-output.png)
 
 ## find
 
@@ -82,6 +90,8 @@ Total errors: 2
 ```
 Note that it only counts uppercase `ERROR`, so the lowercase `error` line is not included.
 
+![awk on the log](awk-log-output.png)
+
 For the pipe-delimited file I use `-F'|'` to set the separator, and `NR>1` to skip the header row.
 
 Names and GPAs:
@@ -109,6 +119,8 @@ Cybersecurity 2.95
 Networking 3.50
 Software 3.50
 ```
+
+![awk on the student data](awk-students-output.png)
 
 ## cron
 
