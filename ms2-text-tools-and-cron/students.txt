@@ -1,0 +1,7 @@
+ID|Name|Program|GPA
+2001|Ava Reyes|Networking|3.4
+2002|Noah Patel|Software|3.9
+2003|Mia Chen|Cybersecurity|2.7
+2004|Lucas Moore|Software|3.1
+2005|Zoe Walker|Networking|3.6
+2006|Ethan Gray|Cybersecurity|3.2
